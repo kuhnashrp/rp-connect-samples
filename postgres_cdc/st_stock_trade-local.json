@@ -1,0 +1,44 @@
+{
+    "generators": [
+        {
+            "table": "trades",
+            "row": {
+                "stockSymbol": {
+                    "_gen": "oneOf",
+                    "choices": ["AAPL", "GOOGL", "AMZN", "MSFT", "TSLA"]
+                },
+                "tradePrice": {
+                    "_gen": "normalDistribution",
+                    "mean": 100,
+                    "sd": 5
+                },
+                "tradeVolume": {
+                    "_gen": "uniformDistribution",
+                    "bounds": [100, 10000],
+                    "decimals": 0
+                },
+                "tradeTime": {
+                    "_gen": "now"
+                }
+            },
+            "localConfigs": {
+                "throttleMs": {
+                    "_gen": "uniformDistribution",
+                    "bounds": [100, 1000]
+                }
+            }
+        }
+    ],
+    "connections": {
+        "pg": {
+            "kind": "postgres",
+            "connectionConfigs": {
+                "host": "local_pgdb1",
+                "port": 5432,
+                "username": "user-name",
+                "password": "strong-password",
+                "db": "stockdb"
+            }
+        }
+    }
+}

@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../window"
+		},
+		{
+			"path": "../../rpcn-cdc"
+		},
+		{
+			"path": "../workbench"
+		}
+	],
+	"settings": {}
+}
